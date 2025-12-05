@@ -19,7 +19,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Header and Navigation */
     header {
        height: 100vh;
       background: url('file:///C:/Users/giahu/Downloads/compressed/background.jpg') center/cover no-repeat;
@@ -107,7 +106,6 @@
       opacity: 0.9;
     }
 
-    /* Section Styles */
     .section {
       padding: 100px 40px;
       text-align: center;
@@ -430,14 +428,13 @@
 
   <footer>
     <div class="social-links">
-      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/huydabuilder/"><i class="fab fa-instagram"></i></a>
 
     </div>
     <p>© 2025 Huy Tran  – All Rights Reserved</p>
   </footer>
 
   <script>
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -453,7 +450,6 @@
         
         const targetElement = document.querySelector(targetId);
         if(targetElement) {
-          // Calculate offset for fixed header
           const headerHeight = document.querySelector('.main-header').offsetHeight;
           const targetPosition = targetElement.offsetTop - headerHeight;
           
@@ -478,4 +474,5 @@
     });
   </script>
 </body>
+
 </html>
