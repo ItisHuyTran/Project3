@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Art Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Header and Navigation */
+    header {
+       height: 100vh;
+      background: url('file:///C:/Users/giahu/Downloads/compressed/background.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0 0 30px rgb(0, 0, 0);
+      position: relative;
+}
+
+    .main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(20, 20, 20, 0.95);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    .logo-icon {
+      color: #ff7e5f;
+      font-size: 2rem;
+    }
+
+    .logo-text {
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ff7e5f;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 4.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .section:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .section h2 {
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      color: #222;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      border-radius: 2px;
+    }
+
+    .section p {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    #contact {
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    #contact h2 {
+      color: white;
+    }
+
+    #contact h2:after {
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .contact-box:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ff7e5f;
+    }
+
+    .contact-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .contact-box p {
+      color: #ccc;
+      font-size: 1.1rem;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .artist-photo {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 5px solid white;
+    }
+
+    .artist-bio {
+      flex: 1;
+      min-width: 300px;
+      text-align: left;
+    }
+
+    .artist-bio h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0 30px;
+    }
+
+    .social-links a {
+      color: #aaa;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #ff7e5f;
+    }
+
+    @media (max-width: 768px) {
+      .main-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .nav-links {
+        gap: 10px;
+      }
+      
+      .nav-links a {
+        padding: 6px 12px;
+        font-size: 1rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+      
+      .section {
+        padding: 80px 20px;
+      }
+      
+      .section h2 {
+        font-size: 2.2rem;
+      }
+      
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+      }
+      
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .artist-bio {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="main-header">
+    <a href="#home" class="logo">
+      <i class=""></i>
+      <span class="logo-text">Huy's Gundam</span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <div class="hero-content">
+      <h1>Huy Tran</h1>
+      <p>My gallery of Gundam </p>
+    </div>
+  </header>
+
+  <section class="section" id="intro">
+    <h2>Welcome</h2>
+    <p>This site showcases a collection of visual works by using Gundam model kits. </p>
+    <p>Gundam  is an internationally renowned franchise spanning around 83 animated series and movies, started from 1979</p>
+  </section>
+
+  <section class="section" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T024210Z-1-001/5BC5D33F-419B-477C-8674-E5E68D166FCD.JPG" alt="Abstract Composition">
+      </div>
+      <div class="gallery-item">
+        <img src="file:///C:/Users/giahu/Downloads/compressed/IMG_1651.jpg" alt="Urban Landscape">
+      </div>
+      <div class="gallery-item">
+        <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T040030Z-1-001/IMG_1436.PNG" alt="Color Exploration">
+      </div>
+      <div class="gallery-item">
+        <img src="file:///C:/Users/giahu/Downloads/compressed%20(1)/IMG_0557.jpg" alt="Geometric Forms">
+      </div>
+      <div class="gallery-item">
+        <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T024210Z-1-001/7AC33607-EAB9-42F1-9E4D-BBFBE60D743F.JPG" alt="Texture Study">
+      </div>
+      <div class="gallery-item">
+        <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T024210Z-1-001/91C8A710-CB91-4CEA-9BC7-784770DF7C26.JPG" alt="Texture Study">
+      </div>
+      <div class="gallery-item">
+        <img src="  file:///C:/Users/giahu/Downloads/compressed%20(1)/IMG_1393.jpg" alt="Texture Study">
+      </div>
+      <div class="gallery-item">
+        <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T040030Z-1-001/IMG_0671.PNG" alt="Texture Study">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About</h2>
+    <div class="about-content">
+      <div class="artist-bio">
+        <p>i do this simply out of joy of my hobby and trying to do some photography</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <div class="contact-container">
+      <div class="contact-box">
+        <i class="fas fa-map-marker-alt contact-icon"></i>
+        <h3>Address</h3>
+        <p>Kansas City <br>Missouri, USA</p>
+      </div>
+      
+      <div class="contact-box">
+        <i class="fas fa-phone contact-icon"></i>
+        <h3>Phone</h3>
+        <p>+49 123 456 7890</p>
+      </div>
+      
+      <div class="contact-box">
+        <i class="fas fa-envelope contact-icon"></i>
+        <h3>Email</h3>
+        <p>gxt00390@ucmo.edu.art  </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+
+    </div>
+    <p>© 2025 Huy Tran  – All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#home') {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          return;
+        }
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          // Calculate offset for fixed header
+          const headerHeight = document.querySelector('.main-header').offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Header background change on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.main-header');
+      if (window.scrollY > 50) {
+        header.style.backgroundColor = 'rgba(20, 20, 20, 0.98)';
+        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+      } else {
+        header.style.backgroundColor = 'rgba(20, 20, 20, 0.95)';
+        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+      }
+    });
+  </script>
+</body>
+</html>
